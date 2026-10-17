@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnt Butter Buns home, sold out</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#0E0D0C}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column">
+  <dc-import name="Main" sold-out="{{ soldOut }}" hint-size="100%,1780px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"soldOut":{"editor":"boolean","default":true,"section":"State"},"$preview":{"width":1280,"height":1780}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { soldOut: this.props.soldOut ?? true };
+  }
+}
+</script>
+</body>
+</html>

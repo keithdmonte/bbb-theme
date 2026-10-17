@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Owner incoming requests</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Caveat+Brush&family=Rock+Salt&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#0B0B0B}
+a{color:#FBF6EC}a:hover{color:#E0702E}
+</style>
+</helmet>
+<div style="width: 100%; max-width: 480px; margin: 0 auto; min-height: 100vh; font-family: 'Space Grotesk', sans-serif; color: #FBF6EC; background: #0B0B0B; display: flex; flex-direction: column">
+  <header style="background: #C2582A; color: #0B0B0B; padding: 14px 20px; display: flex; align-items: center; gap: 12px">
+    <a href="Dashboard.dc.html" aria-label="Back to dashboard" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 2px solid #0B0B0B; border-radius: 50%; color: #0B0B0B"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+    <div style="display: flex; flex-direction: column"><span style="font-family: 'Rock Salt', cursive; font-size: 12px">Owner</span><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px; line-height: 1">Incoming requests · 6</span></div>
+  </header>
+
+  <div style="padding: 16px 20px 24px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; justify-content: space-between; font-size: 13px; color: #C9C1B3"><span>Oldest first</span><span>29 of 60 burgers left</span></div>
+
+    <article style="background: #141211; border: 3px solid #D8923E; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; line-height: 1">Aarav S.</span><span style="font-size: 13px; color: #C9C1B3">+91 98765 43210 · BBB-0427 · 12 min ago</span></div>
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 22px; color: #E0702E; white-space: nowrap">Rs 820</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px">
+        <span style="font-family: 'Caveat Brush', cursive; font-size: 20px; background: #0B0B0B; padding: 4px 10px; border-radius: 8px">1 × Killa Korean</span>
+        <span style="font-family: 'Caveat Brush', cursive; font-size: 20px; background: #0B0B0B; padding: 4px 10px; border-radius: 8px">2 × Double Down</span>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; background: #0B0B0B; border-radius: 12px; padding: 10px 14px">
+        <span style="font-size: 13px; color: #C9C1B3">Wants slot</span>
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; color: #F2CF63">2:00 pm <span style="font-size: 13px; color: #C9C1B3; font-family: 'Space Grotesk', sans-serif; font-weight: 500">3 of 8 left</span></span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+        <button type="button" style="height: 52px; border: none; border-radius: 999px; background: #E0702E; color: #0B0B0B; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer">Accept</button>
+        <button type="button" style="height: 52px; border: 3px solid #FBF6EC; border-radius: 999px; background: transparent; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 15px; cursor: pointer">New slot</button>
+        <button type="button" style="height: 52px; border: 3px solid #B3262E; border-radius: 999px; background: transparent; color: #B3262E; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer">Reject</button>
+      </div>
+    </article>
+
+    <article style="background: #141211; border: 3px solid #B3262E; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; line-height: 1">Priya M.</span><span style="font-size: 13px; color: #C9C1B3">+91 91234 56789 · BBB-0428 · 9 min ago</span></div>
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 22px; color: #E0702E; white-space: nowrap">Rs 500</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px">
+        <span style="font-family: 'Caveat Brush', cursive; font-size: 20px; background: #0B0B0B; padding: 4px 10px; border-radius: 8px">1 × Hot Honey</span>
+        <span style="font-family: 'Caveat Brush', cursive; font-size: 20px; background: #0B0B0B; padding: 4px 10px; border-radius: 8px">1 × Singular</span>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; background: #3D1013; border-radius: 12px; padding: 10px 14px">
+        <span style="font-size: 13px; color: #FBF6EC">Wants slot</span>
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; color: #FBF6EC">2:30 pm <span style="font-size: 13px; font-family: 'Rock Salt', cursive; color: #F2CF63">FULL</span></span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; border: 2px dashed #D8923E; border-radius: 12px; padding: 12px">
+        <span style="font-family: 'Rock Salt', cursive; font-size: 11px; color: #D8923E">Suggest a slot with space</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button type="button" style="height: 44px; padding: 0 14px; border: 2px solid #FBF6EC; border-radius: 999px; background: transparent; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 15px; cursor: pointer">2:00 pm · 3</button>
+          <button type="button" aria-pressed="true" style="height: 44px; padding: 0 14px; border: 2px solid #E0702E; border-radius: 999px; background: #E0702E; color: #0B0B0B; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 15px; cursor: pointer">3:00 pm · 6</button>
+          <button type="button" style="height: 44px; padding: 0 14px; border: 2px solid #FBF6EC; border-radius: 999px; background: transparent; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 15px; cursor: pointer">3:30 pm · 4</button>
+        </div>
+        <button type="button" style="height: 52px; border: none; border-radius: 999px; background: #FBF6EC; color: #0B0B0B; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer">Send 3:00 pm suggestion</button>
+      </div>
+    </article>
+
+    <article style="background: #141211; border: 3px solid #3D1013; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 10px">
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; line-height: 1">Rohan K.</span><span style="font-size: 13px; color: #C9C1B3">+91 99887 76655 · BBB-0429 · 4 min ago</span></div>
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 22px; color: #E0702E; white-space: nowrap">Rs 780</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px">
+        <span style="font-family: 'Caveat Brush', cursive; font-size: 20px; background: #0B0B0B; padding: 4px 10px; border-radius: 8px">3 × Nashville</span>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; background: #0B0B0B; border-radius: 12px; padding: 10px 14px">
+        <span style="font-size: 13px; color: #C9C1B3">Wants slot</span>
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; color: #F2CF63">3:30 pm <span style="font-size: 13px; color: #C9C1B3; font-family: 'Space Grotesk', sans-serif; font-weight: 500">4 of 8 left</span></span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+        <button type="button" style="height: 52px; border: none; border-radius: 999px; background: #E0702E; color: #0B0B0B; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer">Accept</button>
+        <button type="button" style="height: 52px; border: 3px solid #FBF6EC; border-radius: 999px; background: transparent; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 15px; cursor: pointer">New slot</button>
+        <button type="button" style="height: 52px; border: 3px solid #B3262E; border-radius: 999px; background: transparent; color: #B3262E; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer">Reject</button>
+      </div>
+    </article>
+
+    <span style="text-align: center; font-size: 13px; color: #C9C1B3">3 more below · accepting counts burgers against the cap</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1200}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+</body>
+</html>

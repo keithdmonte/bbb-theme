@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Owner settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Rock+Salt&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#0B0B0B}
+a{color:#FBF6EC}a:hover{color:#E0702E}
+</style>
+</helmet>
+<div style="width: 100%; max-width: 480px; margin: 0 auto; min-height: 100vh; font-family: 'Space Grotesk', sans-serif; color: #FBF6EC; background: #0B0B0B; display: flex; flex-direction: column">
+  <header style="background: #C2582A; color: #0B0B0B; padding: 14px 20px; display: flex; align-items: center; gap: 12px">
+    <a href="Dashboard.dc.html" aria-label="Back to dashboard" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 2px solid #0B0B0B; border-radius: 50%; color: #0B0B0B"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+    <div style="display: flex; flex-direction: column"><span style="font-family: 'Rock Salt', cursive; font-size: 12px">Owner</span><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px; line-height: 1">Settings</span></div>
+  </header>
+
+  <div style="padding: 16px 20px 24px; display: flex; flex-direction: column; gap: 16px">
+    <section style="background: #141211; border: 3px solid #3D1013; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <span style="font-family: 'Rock Salt', cursive; font-size: 14px; color: #B3262E">This Sunday</span>
+      <label for="date" style="font-size: 12px; font-weight: 700; color: #C9C1B3">Date</label>
+      <input id="date" type="date" style="height: 52px; box-sizing: border-box; padding: 0 12px; border: 2px solid #D8923E; border-radius: 10px; background: #0B0B0B; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px">
+      <label for="cap" style="font-size: 12px; font-weight: 700; color: #C9C1B3">Total burger limit (ordering closes when reached)</label>
+      <div style="display: flex; align-items: center; gap: 8px">
+        <button type="button" aria-label="Decrease cap" style="width: 52px; height: 52px; border: 2px solid #E0702E; border-radius: 12px; background: transparent; color: #E0702E; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 26px; cursor: pointer">-</button>
+        <input id="cap" type="number" value="60" style="flex-grow: 1; min-width: 0; height: 52px; box-sizing: border-box; text-align: center; border: 2px solid #3D1013; border-radius: 12px; background: #0B0B0B; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 30px">
+        <button type="button" aria-label="Increase cap" style="width: 52px; height: 52px; border: none; border-radius: 12px; background: #E0702E; color: #0B0B0B; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 26px; cursor: pointer">+</button>
+      </div>
+    </section>
+
+    <section style="background: #141211; border: 3px solid #3D1013; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline"><span style="font-family: 'Rock Salt', cursive; font-size: 14px; color: #B3262E">Pickup timeslots</span><span style="font-size: 12px; color: #C9C1B3">orders per slot</span></div>
+      <div style="display: flex; align-items: center; gap: 8px"><span style="flex-grow: 1; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px">1:00 pm</span><input type="number" value="8" aria-label="Orders for 1:00 pm" style="width: 64px; height: 44px; box-sizing: border-box; text-align: center; border: 2px solid #3D1013; border-radius: 10px; background: #0B0B0B; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px"><button type="button" aria-label="Remove 1:00 pm" style="width: 44px; height: 44px; border: 2px solid #B3262E; border-radius: 50%; background: transparent; color: #B3262E; font-weight: 700; font-size: 20px; cursor: pointer">×</button></div>
+      <div style="display: flex; align-items: center; gap: 8px"><span style="flex-grow: 1; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px">1:30 pm</span><input type="number" value="8" aria-label="Orders for 1:30 pm" style="width: 64px; height: 44px; box-sizing: border-box; text-align: center; border: 2px solid #3D1013; border-radius: 10px; background: #0B0B0B; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px"><button type="button" aria-label="Remove 1:30 pm" style="width: 44px; height: 44px; border: 2px solid #B3262E; border-radius: 50%; background: transparent; color: #B3262E; font-weight: 700; font-size: 20px; cursor: pointer">×</button></div>
+      <div style="display: flex; align-items: center; gap: 8px"><span style="flex-grow: 1; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px">2:00 pm</span><input type="number" value="8" aria-label="Orders for 2:00 pm" style="width: 64px; height: 44px; box-sizing: border-box; text-align: center; border: 2px solid #3D1013; border-radius: 10px; background: #0B0B0B; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px"><button type="button" aria-label="Remove 2:00 pm" style="width: 44px; height: 44px; border: 2px solid #B3262E; border-radius: 50%; background: transparent; color: #B3262E; font-weight: 700; font-size: 20px; cursor: pointer">×</button></div>
+      <div style="display: flex; align-items: center; gap: 8px"><span style="flex-grow: 1; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px">2:30 pm</span><input type="number" value="8" aria-label="Orders for 2:30 pm" style="width: 64px; height: 44px; box-sizing: border-box; text-align: center; border: 2px solid #3D1013; border-radius: 10px; background: #0B0B0B; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px"><button type="button" aria-label="Remove 2:30 pm" style="width: 44px; height: 44px; border: 2px solid #B3262E; border-radius: 50%; background: transparent; color: #B3262E; font-weight: 700; font-size: 20px; cursor: pointer">×</button></div>
+      <div style="display: flex; align-items: center; gap: 8px"><span style="flex-grow: 1; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px">3:00 pm</span><input type="number" value="8" aria-label="Orders for 3:00 pm" style="width: 64px; height: 44px; box-sizing: border-box; text-align: center; border: 2px solid #3D1013; border-radius: 10px; background: #0B0B0B; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px"><button type="button" aria-label="Remove 3:00 pm" style="width: 44px; height: 44px; border: 2px solid #B3262E; border-radius: 50%; background: transparent; color: #B3262E; font-weight: 700; font-size: 20px; cursor: pointer">×</button></div>
+      <div style="display: flex; align-items: center; gap: 8px"><span style="flex-grow: 1; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px">3:30 pm</span><input type="number" value="8" aria-label="Orders for 3:30 pm" style="width: 64px; height: 44px; box-sizing: border-box; text-align: center; border: 2px solid #3D1013; border-radius: 10px; background: #0B0B0B; color: #FBF6EC; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px"><button type="button" aria-label="Remove 3:30 pm" style="width: 44px; height: 44px; border: 2px solid #B3262E; border-radius: 50%; background: transparent; color: #B3262E; font-weight: 700; font-size: 20px; cursor: pointer">×</button></div>
+      <button type="button" style="height: 48px; border: 2px dashed #D8923E; border-radius: 999px; background: transparent; color: #D8923E; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px; cursor: pointer">+ Add a slot</button>
+    </section>
+
+    <section style="background: #141211; border: 3px solid #3D1013; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <span style="font-family: 'Rock Salt', cursive; font-size: 14px; color: #B3262E">Getting paid</span>
+      <label for="upi" style="font-size: 12px; font-weight: 700; color: #C9C1B3">UPI ID shown to customers</label>
+      <input id="upi" type="text" placeholder="yourname@upi" style="height: 52px; box-sizing: border-box; padding: 0 12px; border: 2px solid #D8923E; border-radius: 10px; background: #0B0B0B; color: #FBF6EC; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px">
+      <span style="font-size: 12px; font-weight: 700; color: #C9C1B3">UPI QR image</span>
+      <button type="button" style="height: 140px; border: 3px dashed #D8923E; border-radius: 14px; background: #0B0B0B; color: #D8923E; font-family: 'Rock Salt', cursive; font-size: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; cursor: pointer">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"></path><path d="M6 10l6-6 6 6"></path><path d="M4 20h16"></path></svg>
+        <span>Upload QR</span>
+      </button>
+    </section>
+
+    <section style="background: #141211; border: 3px solid #3D1013; border-radius: 18px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+      <span style="font-family: 'Rock Salt', cursive; font-size: 14px; color: #B3262E">Pickup address</span>
+      <input type="text" aria-label="Pickup address" placeholder="[PICKUP ADDRESS]" style="height: 52px; box-sizing: border-box; padding: 0 12px; border: 2px solid #3D1013; border-radius: 10px; background: #0B0B0B; color: #FBF6EC; font-family: 'Space Grotesk', sans-serif; font-size: 16px">
+    </section>
+
+    <button type="button" style="height: 60px; border: none; border-radius: 999px; background: #E0702E; color: #0B0B0B; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; cursor: pointer; box-shadow: 5px 5px 0 #FBF6EC">Save Sunday settings</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1200}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script>
+</body>
+</html>

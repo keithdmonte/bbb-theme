@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Owner Sunday dashboard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Rock+Salt&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#0B0B0B}
+a{color:#FBF6EC}a:hover{color:#E0702E}
+</style>
+</helmet>
+<div style="width: 100%; max-width: 480px; margin: 0 auto; min-height: 100vh; font-family: 'Space Grotesk', sans-serif; color: #FBF6EC; background: #0B0B0B; display: flex; flex-direction: column">
+  <header style="background: #C2582A; color: #0B0B0B; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+    <div style="display: flex; flex-direction: column">
+      <span style="font-family: 'Rock Salt', cursive; font-size: 12px">Owner · this Sunday</span>
+      <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px; line-height: 1">Sun {{sundayDate}}</span>
+    </div>
+    <a href="Settings.dc.html" aria-label="Settings" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 2px solid #0B0B0B; border-radius: 50%; color: #0B0B0B"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"></path></svg></a>
+  </header>
+
+  <div style="padding: 18px 20px 24px; display: flex; flex-direction: column; gap: 18px">
+    <section style="background: #FBF6EC; color: #0B0B0B; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: 5px 5px 0 #B3262E">
+      <div style="display: flex; justify-content: space-between; align-items: baseline">
+        <span style="font-family: 'Rock Salt', cursive; font-size: 12px">Burgers sold vs cap</span>
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px">{{pct}}%</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 8px; font-family: 'Fredoka', sans-serif; font-weight: 700"><span style="font-size: 64px; line-height: 0.9">{{sold}}</span><span style="font-size: 22px; color: #6B5F60">/ {{cap}}</span></div>
+      <div style="height: 18px; border-radius: 999px; background: #E6DECB; overflow: hidden; border: 2px solid #0B0B0B"><div style="width: {{pctW}}; height: 100%; background: #E0702E"></div></div>
+      <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 500"><span>{{left}} left before auto-close</span><span style="color: #7A1F12">cap set in Settings</span></div>
+    </section>
+
+    <button type="button" onClick="{{togglePause}}" aria-pressed="{{paused}}" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-radius: 16px; border: 3px solid {{pauseBorder}}; background: {{pauseBg}}; color: {{pauseFg}}; cursor: pointer; text-align: left; font-family: 'Space Grotesk', sans-serif">
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 19px; line-height: 1">{{pauseTitle}}</span>
+        <span style="font-size: 13px; opacity: 0.85">{{pauseSub}}</span>
+      </div>
+      <span style="width: 58px; height: 32px; border-radius: 999px; background: {{knobTrack}}; position: relative; flex-shrink: 0; border: 2px solid #0B0B0B; box-sizing: border-box"><span style="position: absolute; top: 2px; left: {{knobLeft}}; width: 24px; height: 24px; border-radius: 50%; background: #0B0B0B"></span></span>
+    </button>
+
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+      <a href="Requests.dc.html" style="text-decoration: none; background: #141211; border: 3px solid #D8923E; border-radius: 14px; padding: 12px 10px; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 34px; line-height: 1; color: #F2CF63">6</span><span style="font-size: 12px; font-weight: 700; line-height: 1.2">new requests</span></a>
+      <a href="Payments.dc.html" style="text-decoration: none; background: #141211; border: 3px solid #E0702E; border-radius: 14px; padding: 12px 10px; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 34px; line-height: 1; color: #E0702E">4</span><span style="font-size: 12px; font-weight: 700; line-height: 1.2">payments to verify</span></a>
+      <a href="Prep.dc.html" style="text-decoration: none; background: #141211; border: 3px solid #3D1013; border-radius: 14px; padding: 12px 10px; display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 34px; line-height: 1">23</span><span style="font-size: 12px; font-weight: 700; line-height: 1.2">confirmed orders</span></a>
+    </div>
+
+    <section style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; justify-content: space-between; align-items: baseline">
+        <h2 style="margin: 0; font-family: 'Rock Salt', cursive; font-size: 16px; color: #B3262E">Slot fill</h2>
+        <span style="font-size: 12px; color: #C9C1B3">orders per slot, from Settings</span>
+      </div>
+      <sc-for list="{{slots}}" as="s" hint-placeholder-count="6">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px; width: 72px">{{s.time}}</span>
+          <div style="flex-grow: 1; height: 26px; border-radius: 8px; background: #141211; border: 2px solid #3D1013; overflow: hidden; position: relative"><div style="width: {{s.w}}; height: 100%; background: {{s.color}}"></div></div>
+          <span style="font-size: 14px; font-weight: 700; width: 46px; text-align: right; color: {{s.textColor}}">{{s.label}}</span>
+        </div>
+      </sc-for>
+    </section>
+
+    <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+      <div style="background: #141211; border: 3px solid #3D1013; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #C9C1B3">Collected (verified)</span><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 26px; color: #E0702E">Rs 5,940</span></div>
+      <div style="background: #141211; border: 3px solid #3D1013; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #C9C1B3">Awaiting payment</span><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 26px; color: #F2CF63">Rs 1,560</span></div>
+      <div style="background: #141211; border: 3px solid #3D1013; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #C9C1B3">Top item</span><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px">Killa Korean · 11</span></div>
+      <div style="background: #141211; border: 3px solid #3D1013; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #C9C1B3">Rejected today</span><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; color: #B3262E">2</span></div>
+    </section>
+
+    <nav style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding-top: 4px">
+      <a href="MenuManager.dc.html" style="text-decoration: none; border: 3px solid #FBF6EC; border-radius: 999px; padding: 14px; text-align: center; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px">Menu manager</a>
+      <a href="Prep.dc.html" style="text-decoration: none; background: #E0702E; color: #0B0B0B; border-radius: 999px; padding: 14px; text-align: center; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px">Prep board</a>
+    </nav>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"sold":{"editor":"int","default":31,"min":0,"max":300,"section":"State"},"cap":{"editor":"int","default":60,"min":1,"max":300,"section":"State"},"$preview":{"width":390,"height":1200}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { paused: false }; }
+  renderVals() {
+    const sold = this.props.sold ?? 31, cap = this.props.cap ?? 60, pct = Math.min(100, Math.round(sold / cap * 100));
+    const paused = this.state.paused;
+    const raw = [['1:00 pm', 8, 8], ['1:30 pm', 6, 8], ['2:00 pm', 3, 8], ['2:30 pm', 8, 8], ['3:00 pm', 2, 8], ['3:30 pm', 4, 8]];
+    const d = new Date(); d.setDate(d.getDate() + ((7 - d.getDay()) % 7));
+    return {
+      sold, cap, pct, pctW: pct + '%', left: Math.max(0, cap - sold),
+      sundayDate: d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }),
+      paused, togglePause: () => this.setState({ paused: !paused }),
+      pauseTitle: paused ? 'Orders paused' : 'Orders open',
+      pauseSub: paused ? 'Customers see Sold out. Tap to reopen.' : 'Tap to pause new requests right now.',
+      pauseBg: paused ? '#B3262E' : '#141211', pauseFg: '#FBF6EC', pauseBorder: paused ? '#B3262E' : '#3D1013',
+      knobTrack: paused ? '#FBF6EC' : '#D8923E', knobLeft: paused ? '28px' : '2px',
+      slots: raw.map(([time, n, max]) => ({ time, w: Math.round(n / max * 100) + '%', color: n >= max ? '#B3262E' : '#E0702E', label: n >= max ? 'FULL' : n + '/' + max, textColor: n >= max ? '#B3262E' : '#FBF6EC' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

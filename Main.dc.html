@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnt Butter Buns home, desktop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Caveat+Brush&family=Rock+Salt&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#0B0B0B}
+a{color:#FBF6EC}a:hover{color:#E0702E}
+@keyframes bbb-slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.bbb-track{display:flex;width:max-content;animation:bbb-slide 22s linear infinite;will-change:transform}
+@media (prefers-reduced-motion: reduce){.bbb-track{animation-duration:90s}}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', sans-serif; color: #FBF6EC; background: #0B0B0B; min-height: 100vh; display: flex; flex-direction: column; position: relative; overflow: hidden">
+
+  <div aria-hidden="true" style="position: absolute; inset: 0; overflow: hidden; pointer-events: none; display: flex; flex-direction: column; gap: 0">
+    <sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+      <div style="font-family: 'Rock Salt', cursive; font-size: 40px; line-height: 110px; color: #3D1013; white-space: nowrap; letter-spacing: 0.12em; margin-left: {{r.ml}}">{{r.t}}</div>
+    </sc-for>
+  </div>
+  <svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.14; pointer-events: none; mix-blend-mode: overlay"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix values="0 0 0 0 0.7 0 0 0 0 0.7 0 0 0 0 0.7 0 0 0 1 0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#grain)"></rect></svg>
+
+  <div style="position: relative; z-index: 1; display: flex; flex-direction: column; flex-grow: 1">
+
+  <div style="background: {{stripColor}}; overflow: hidden; height: 52px; display: flex; align-items: center; border-bottom: 3px solid #0B0B0B" role="marquee" aria-label="{{stripText}}">
+    <div class="bbb-track">
+      <span style="font-family: 'Permanent Marker', cursive; font-size: 24px; letter-spacing: 0.08em; color: #0B0B0B; white-space: nowrap; padding-right: 24px">{{stripLoop}}</span>
+      <span style="font-family: 'Permanent Marker', cursive; font-size: 24px; letter-spacing: 0.08em; color: #0B0B0B; white-space: nowrap; padding-right: 24px" aria-hidden="true">{{stripLoop}}</span>
+    </div>
+  </div>
+
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; max-width: 1200px; width: 100%; margin: 0 auto; box-sizing: border-box">
+    <a href="#top" aria-label="Burnt Butter Buns home" style="display: block; text-decoration: none"><span style="display: block; position: relative; width: 64px; height: 64px; border-radius: 50%; overflow: hidden; background: #0B0B0B"><img src="logo.webp" alt="" style="position: absolute; width: 112%; left: -7.4%; top: -11.4%"></span></a>
+    <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 0.06em">
+      <a href="Menu.dc.html" style="text-decoration: none">Menu</a>
+      <a href="#how" style="text-decoration: none">How it works</a>
+      <a href="MyOrders.dc.html" style="text-decoration: none">My orders</a>
+      <a href="Menu.dc.html" style="text-decoration: none; background: #E0702E; color: #0B0B0B; padding: 14px 22px; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-size: 18px; transform: rotate(-2deg)">{{ctaLabel}}</a>
+    </nav>
+  </header>
+
+  <section id="top" style="max-width: 1200px; width: 100%; margin: 0 auto; box-sizing: border-box; padding: 40px 24px 72px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
+    <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+        <span style="font-family: 'Rock Salt', cursive; font-size: 15px; color: {{windowColor}}; border: 2px solid {{windowColor}}; border-radius: 6px; padding: 8px 14px; transform: rotate(-1.5deg)">{{windowLabel}}</span>
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; color: #F2CF63">This Sunday · {{sundayDate}}</span>
+      </div>
+      <h1 style="margin: 0; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 104px; line-height: 0.88; letter-spacing: -0.02em; color: #FBF6EC">{{heroLine1}}<br><span style="color: #E0702E">{{heroLine2}}</span></h1>
+      <p style="margin: 0; font-size: 20px; line-height: 1.5; color: #C9C1B3; max-width: 520px">Home-fried chicken and smash burgers, cooked by one guy, one day a week. Order during the week, pick a Sunday slot, collect it hot.</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch">
+        <div style="flex: 1 1 260px; background: #FBF6EC; color: #0B0B0B; border-radius: 16px; padding: 20px 24px; display: flex; flex-direction: column; gap: 4px; transform: rotate(-1deg); box-shadow: 6px 6px 0 #B3262E">
+          <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 88px; line-height: 0.9; color: {{counterColor}}">{{slotsLeft}}</span>
+          <span style="font-family: 'Rock Salt', cursive; font-size: 15px; line-height: 1.5">{{counterLabel}}</span>
+        </div>
+        <div style="flex: 1 1 260px; border: 3px solid #C2582A; border-radius: 16px; padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; transform: rotate(1deg)">
+          <span style="font-family: 'Rock Salt', cursive; font-size: 14px; color: #E0702E">{{countdownLabel}}</span>
+          <div style="display: flex; gap: 14px; align-items: baseline; font-family: 'Fredoka', sans-serif; font-weight: 700">
+            <span style="font-size: 56px; line-height: 1">{{days}}<span style="font-size: 20px; color: #C9C1B3">d</span></span>
+            <span style="font-size: 56px; line-height: 1">{{hrs}}<span style="font-size: 20px; color: #C9C1B3">h</span></span>
+            <span style="font-size: 56px; line-height: 1">{{mins}}<span style="font-size: 20px; color: #C9C1B3">m</span></span>
+          </div>
+          <span style="font-size: 14px; color: #C9C1B3">Pickup slots {{pickupWindow}} · [PICKUP ADDRESS]</span>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center">
+        <a href="Menu.dc.html" style="text-decoration: none; background: #E0702E; color: #0B0B0B; padding: 22px 40px; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px; box-shadow: 5px 5px 0 #FBF6EC">{{ctaLabel}}</a>
+        <svg width="90" height="40" viewBox="0 0 90 40" aria-hidden="true" fill="none" stroke="#FBF6EC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 30c20-14 40-18 70-14"></path><path d="M62 8l14 8-10 12"></path></svg>
+        <span style="font-family: 'Caveat Brush', cursive; font-size: 26px; color: #FBF6EC; transform: rotate(-4deg)">{{nudge}}</span>
+      </div>
+    </div>
+
+    <div style="flex: 1 1 400px; min-width: 0; position: relative; padding: 40px 20px">
+      <div style="position: absolute; inset: 40px 20px; border-radius: 28px; background: #3D1013; transform: rotate(3deg)"></div>
+      <img src="killa-korean.webp" alt="The Killa Korean fried chicken burger" style="position: relative; width: 100%; height: auto; display: block; border-radius: 24px; object-fit: cover; transform: rotate(-3deg) scale(1.06); box-shadow: inset 0 0 60px #000, 0 30px 60px rgba(0,0,0,0.6)">
+      <span style="position: absolute; top: 10px; right: 0; font-family: 'Caveat Brush', cursive; font-size: 44px; color: #FBF6EC; transform: rotate(-8deg); text-shadow: 3px 3px 0 #0B0B0B">The Killa Korean</span>
+      <span style="position: absolute; bottom: 20px; left: 0; background: #F2CF63; color: #0B0B0B; font-family: 'Rock Salt', cursive; font-size: 16px; padding: 12px 18px; border-radius: 8px; transform: rotate(6deg); box-shadow: 4px 4px 0 #0B0B0B">Best seller</span>
+      <svg aria-hidden="true" style="position: absolute; top: 90px; left: -10px" width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#E0702E" stroke-width="4" stroke-linecap="round"><path d="M6 30h18"></path><path d="M10 16l14 8"></path><path d="M10 44l14-8"></path></svg>
+    </div>
+  </section>
+
+  <section id="menu" style="border-top: 3px solid #3D1013; border-bottom: 3px solid #3D1013; background: rgba(11,11,11,0.6)">
+    <div style="max-width: 1200px; width: 100%; margin: 0 auto; box-sizing: border-box; padding: 64px 24px; display: flex; flex-direction: column; gap: 36px">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font-family: 'Rock Salt', cursive; font-size: 40px; color: #B3262E; line-height: 1.3">The 3Bs Menu</h2>
+          <svg width="220" height="14" viewBox="0 0 220 14" aria-hidden="true" fill="none" stroke="#B3262E" stroke-width="3" stroke-linecap="round"><path d="M3 9c40-7 80 5 120-2s60-5 94 3"></path></svg>
+        </div>
+        <span style="font-size: 16px; color: #C9C1B3">Prices in Rs. Everything cooked fresh on Sunday morning.</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+        <sc-for list="{{items}}" as="item" hint-placeholder-count="9">
+          <article style="position: relative; background: #141211; border: 3px solid #3D1013; border-radius: 20px; padding: 120px 22px 22px; display: flex; flex-direction: column; gap: 8px; min-width: 0; margin-top: 60px">
+            <sc-if value="{{item.hasPhoto}}" hint-placeholder-val="{{ false }}">
+              <img loading="lazy" src="{{item.img}}" alt="{{item.name}}" style="position: absolute; top: -60px; left: 50%; width: 220px; height: 160px; object-fit: cover; border-radius: 18px; transform: translateX(-50%) rotate(-5deg); box-shadow: 0 16px 30px rgba(0,0,0,0.7)">
+            </sc-if>
+            <sc-if value="{{item.noPhoto}}" hint-placeholder-val="{{ true }}">
+              <div style="position: absolute; top: -60px; left: 50%; width: 220px; height: 160px; border: 3px dashed #D8923E; border-radius: 18px; transform: translateX(-50%) rotate(-5deg); background: #0B0B0B; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #D8923E; font-family: 'Rock Salt', cursive; font-size: 12px; text-align: center; padding: 10px; box-sizing: border-box">
+                <svg viewBox="0 0 48 56" width="36" height="42" aria-hidden="true" fill="none" stroke="#D8923E" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M16 14c0-5 3-8 6-8 2 0 3 1 4 3 1-3 3-5 6-5 3 0 5 3 5 6"></path><path d="M10 24c0-8 6-12 14-12s14 4 14 12v10c0 6-4 10-8 12l-6 4-6-4c-4-2-8-6-8-12z"></path><path d="M24 30l5 5-5 5-5-5z"></path></svg>
+                <span>[PHOTO: {{item.name}}]</span>
+              </div>
+            </sc-if>
+            <span style="font-family: 'Rock Salt', cursive; font-size: 12px; color: #B3262E">{{item.cat}}</span>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+              <h3 style="margin: 0; font-family: 'Caveat Brush', cursive; font-size: 36px; line-height: 1; color: #FBF6EC; transform: rotate(-2deg); transform-origin: left">{{item.name}}</h3>
+              <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 26px; color: #E0702E; white-space: nowrap">Rs {{item.price}}</span>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+      <a href="Menu.dc.html" style="align-self: center; text-decoration: none; border: 3px solid #FBF6EC; color: #FBF6EC; padding: 16px 32px; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px">Open the full menu</a>
+    </div>
+  </section>
+
+  <section id="how" style="max-width: 1200px; width: 100%; margin: 0 auto; box-sizing: border-box; padding: 64px 24px; display: flex; flex-direction: column; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h2 style="margin: 0; font-family: 'Rock Salt', cursive; font-size: 40px; color: #B3262E; line-height: 1.3">How a drop works</h2>
+      <svg width="260" height="14" viewBox="0 0 260 14" aria-hidden="true" fill="none" stroke="#B3262E" stroke-width="3" stroke-linecap="round"><path d="M3 9c50-7 100 5 150-2s70-5 104 3"></path></svg>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px">
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #141211; border: 3px solid #3D1013; border-radius: 20px; min-width: 0; transform: rotate(-1deg)">
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 48px; line-height: 1; color: #E0702E">1</span>
+        <h3 style="margin: 0; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px">Request a slot</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #C9C1B3">Pick burgers, choose a Sunday pickup slot, sign in with Google and your phone number.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #141211; border: 3px solid #3D1013; border-radius: 20px; min-width: 0; transform: rotate(1deg)">
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 48px; line-height: 1; color: #E0702E">2</span>
+        <h3 style="margin: 0; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px">Owner accepts</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #C9C1B3">He accepts, or suggests a different slot if yours is full. You confirm in the portal.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #141211; border: 3px solid #3D1013; border-radius: 20px; min-width: 0; transform: rotate(-1deg)">
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 48px; line-height: 1; color: #E0702E">3</span>
+        <h3 style="margin: 0; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px">Pay by UPI</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #C9C1B3">Scan the QR, then upload the screenshot or UTR. Once verified, your order is locked.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #141211; border: 3px solid #3D1013; border-radius: 20px; min-width: 0; transform: rotate(1deg)">
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 48px; line-height: 1; color: #E0702E">4</span>
+        <h3 style="margin: 0; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px">Pick up Sunday</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #C9C1B3">Watch your status flip to Ready, then collect at [PICKUP ADDRESS] in your slot.</p>
+      </div>
+    </div>
+    <p style="margin: 0; font-size: 15px; color: #C9C1B3">All updates show inside your order page. No SMS, no WhatsApp, so keep the tab handy.</p>
+  </section>
+
+  <footer style="margin-top: auto; background: #C2582A; color: #0B0B0B">
+    <div style="max-width: 1200px; width: 100%; margin: 0 auto; box-sizing: border-box; padding: 48px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 48px; line-height: 0.95">{{footerHeadline}}</span>
+        <span style="font-size: 17px; font-weight: 500">{{footerSub}}</span>
+      </div>
+      <a href="Menu.dc.html" style="text-decoration: none; background: #0B0B0B; color: #FBF6EC; padding: 20px 36px; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 22px">{{ctaLabel}}</a>
+    </div>
+    <div style="border-top: 3px solid rgba(11,11,11,0.3); padding: 16px 24px; text-align: center; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase">Burnt Butter Buns · Mumbai · Sundays only</div>
+  </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"soldOut":{"editor":"boolean","default":false,"section":"State"},"slotsLeft":{"editor":"int","default":37,"min":0,"max":300,"section":"State"},"pickupWindow":{"editor":"text","default":"1 to 4 pm","section":"State"},"stripColor":{"editor":"color","default":"#C2582A","options":["#C2582A","#B3262E","#E0702E"],"section":"Marquee"},"$preview":{"width":1280,"height":2080}}'>
+class Component extends DCLogic {
+  componentDidMount() { this.tick(); this._t = setInterval(() => this.tick(), 30000); }
+  componentWillUnmount() { clearInterval(this._t); }
+  tick() {
+    const now = new Date();
+    const d = new Date(now);
+    d.setDate(now.getDate() + ((7 - now.getDay()) % 7));
+    d.setHours(13, 0, 0, 0);
+    if (d <= now) d.setDate(d.getDate() + 7);
+    const ms = d - now;
+    this.setState({
+      days: Math.floor(ms / 864e5),
+      hrs: Math.floor(ms / 36e5) % 24,
+      mins: Math.floor(ms / 6e4) % 60,
+      sundayDate: d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' })
+    });
+  }
+  renderVals() {
+    const s = this.state || {};
+    const soldOut = this.props.soldOut ?? false;
+    const stripText = soldOut
+      ? 'SOLD OUT • SEE YOU NEXT SUNDAY •'
+      : 'SUNDAYS ONLY • LIMITED BURGERS • PRE-ORDER NOW • BURNT BUTTER BUNS •';
+    const stripLoop = (stripText + ' ').repeat(soldOut ? 8 : 4);
+    const left = soldOut ? 0 : (this.props.slotsLeft ?? 37);
+    const names = [
+      ['Burgs', 'Killa Korean', 260, true], ['Burgs', 'Hot Honey', 240], ['Burgs', 'Master Makhani', 240],
+      ['Burgs', 'BBQ', 240], ['Burgs', 'Nashville', 260], ['Burgs', 'Classic', 220],
+      ['Smashers', 'Singular', 260], ['Smashers', 'Double Down', 280], ['Packers', 'Fryday Box', 260]
+    ];
+    const items = names.map(([cat, name, price]) => ({ cat, name, price, img: name.toLowerCase().replace(/ /g, '-') + '.webp', hasPhoto: true, noPhoto: false }));
+    const rows = Array.from({ length: 20 }, (_, i) => ({
+      t: (i % 2 ? 'SUNDAY   MENU   SUNDAY   MENU   SUNDAY   MENU   SUNDAY   MENU   SUNDAY   MENU   SUNDAY   MENU' : 'MENU   SUNDAY   MENU   SUNDAY   MENU   SUNDAY   MENU   SUNDAY   MENU   SUNDAY   MENU   SUNDAY'),
+      ml: (i % 3) * -60 + 'px'
+    }));
+    return {
+      rows, items, stripText, stripLoop,
+      stripColor: this.props.stripColor ?? '#C2582A',
+      days: s.days ?? 0, hrs: s.hrs ?? 0, mins: s.mins ?? 0,
+      sundayDate: s.sundayDate ?? '[DATE]',
+      pickupWindow: this.props.pickupWindow ?? '1 to 4 pm',
+      ctaLabel: soldOut ? 'See the menu' : 'Order now',
+      windowLabel: soldOut ? 'Sold out for this Sunday' : 'Drop is live',
+      windowColor: soldOut ? '#B3262E' : '#E0702E',
+      heroLine1: soldOut ? 'Gone.' : 'Fried.',
+      heroLine2: soldOut ? 'See you next Sunday.' : 'Sundays only.',
+      slotsLeft: left,
+      counterLabel: soldOut ? 'burgers left. Sold out.' : 'burgers left this Sunday',
+      counterColor: soldOut ? '#B3262E' : '#0B0B0B',
+      countdownLabel: soldOut ? 'Next drop opens in' : 'Pickup starts in',
+      nudge: soldOut ? 'blink and you miss it' : 'closes when the batch is gone',
+      footerHeadline: soldOut ? 'Sold out. Next Sunday, be faster.' : 'Grab yours before the batch is gone.',
+      footerSub: soldOut ? 'Ordering reopens once the owner sets next Sunday.' : 'No fixed cutoff. Ordering closes the moment the Sunday limit is hit.'
+    };
+  }
+}
+</script>
+</body>
+</html>

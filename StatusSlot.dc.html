@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order status, slot change suggested</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><style>body{margin:0;background:#0B0B0B}</style></helmet>
+<div style="width: 100%; max-width: 480px; margin: 0 auto"><dc-import name="Status" stage="{{ stage }}" hint-size="390px,1180px"></dc-import></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"stage":{"editor":"enum","default":"slot","options":["requested","slot","pay","review","confirmed","ready","picked","rejected"]},"$preview":{"width":390,"height":1180}}'>
+class Component extends DCLogic { renderVals() { return { stage: this.props.stage ?? 'slot' }; } }
+</script>
+</body>
+</html>

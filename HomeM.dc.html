@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burnt Butter Buns home, mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Caveat+Brush&family=Rock+Salt&family=Permanent+Marker&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#0B0B0B}
+a{color:#FBF6EC}a:hover{color:#E0702E}
+@keyframes bbb-slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.bbb-track{display:flex;width:max-content;animation:bbb-slide 18s linear infinite;will-change:transform}
+@media (prefers-reduced-motion: reduce){.bbb-track{animation-duration:80s}}
+</style>
+</helmet>
+<div style="width: 100%; max-width: 480px; margin: 0 auto; font-family: 'Space Grotesk', sans-serif; color: #FBF6EC; background: #0B0B0B; position: relative; overflow: hidden; box-sizing: border-box">
+  <div aria-hidden="true" style="position: absolute; inset: 0; overflow: hidden; pointer-events: none; display: flex; flex-direction: column">
+    <sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+      <div style="font-family: 'Rock Salt', cursive; font-size: 30px; line-height: 90px; color: #3D1013; white-space: nowrap; letter-spacing: 0.12em; margin-left: {{r.ml}}">{{r.t}}</div>
+    </sc-for>
+  </div>
+  <svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.14; pointer-events: none; mix-blend-mode: overlay"><filter id="grainm"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix values="0 0 0 0 0.7 0 0 0 0 0.7 0 0 0 0 0.7 0 0 0 1 0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#grainm)"></rect></svg>
+
+  <div style="position: relative; z-index: 1; display: flex; flex-direction: column">
+    <div style="background: #C2582A; overflow: hidden; height: 44px; display: flex; align-items: center; border-bottom: 3px solid #0B0B0B" role="marquee" aria-label="{{stripText}}">
+      <div class="bbb-track">
+        <span style="font-family: 'Permanent Marker', cursive; font-size: 20px; letter-spacing: 0.08em; color: #0B0B0B; white-space: nowrap; padding-right: 20px">{{stripLoop}}</span>
+        <span style="font-family: 'Permanent Marker', cursive; font-size: 20px; letter-spacing: 0.08em; color: #0B0B0B; white-space: nowrap; padding-right: 20px" aria-hidden="true">{{stripLoop}}</span>
+      </div>
+    </div>
+
+    <header style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px">
+      <a href="#top" aria-label="Burnt Butter Buns home" style="display: block; text-decoration: none"><span style="display: block; position: relative; width: 52px; height: 52px; border-radius: 50%; overflow: hidden; background: #0B0B0B"><img src="logo.webp" alt="" style="position: absolute; width: 112%; left: -7.4%; top: -11.4%"></span></a>
+      <div style="display: flex; align-items: center; gap: 10px">
+        <a href="MyOrders.dc.html" aria-label="My orders" style="width: 44px; height: 44px; border: 2px solid #FBF6EC; border-radius: 50%; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l2 6H4z"></path><path d="M4 9v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9"></path></svg></a>
+        <a href="Menu.dc.html" style="text-decoration: none; background: #E0702E; color: #0B0B0B; padding: 12px 18px; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px; transform: rotate(-2deg)">{{ctaLabel}}</a>
+      </div>
+    </header>
+
+    <section id="top" style="padding: 8px 20px 24px; display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+        <span style="font-family: 'Rock Salt', cursive; font-size: 12px; color: {{windowColor}}; border: 2px solid {{windowColor}}; border-radius: 6px; padding: 7px 10px; transform: rotate(-1.5deg)">{{windowLabel}}</span>
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 16px; color: #F2CF63">Sun {{sundayDate}}</span>
+      </div>
+      <h1 style="margin: 0; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 68px; line-height: 0.88; letter-spacing: -0.02em">{{heroLine1}}<br><span style="color: #E0702E">{{heroLine2}}</span></h1>
+
+      <div style="position: relative; margin: 10px 0 0">
+        <div style="position: absolute; inset: 10px -10px; border-radius: 24px; background: #3D1013; transform: rotate(3deg)"></div>
+        <img src="killa-korean.webp" alt="The Killa Korean fried chicken burger" style="position: relative; width: 100%; height: 300px; display: block; border-radius: 20px; object-fit: cover; transform: rotate(-3deg) scale(1.04); box-shadow: 0 24px 40px rgba(0,0,0,0.6)">
+        <span style="position: absolute; top: -6px; right: 4px; font-family: 'Caveat Brush', cursive; font-size: 34px; color: #FBF6EC; transform: rotate(-8deg); text-shadow: 3px 3px 0 #0B0B0B">The Killa Korean</span>
+        <span style="position: absolute; bottom: 4px; left: -4px; background: #F2CF63; color: #0B0B0B; font-family: 'Rock Salt', cursive; font-size: 13px; padding: 10px 14px; border-radius: 8px; transform: rotate(6deg); box-shadow: 4px 4px 0 #0B0B0B">Best seller</span>
+      </div>
+
+      <div style="background: #FBF6EC; color: #0B0B0B; border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; gap: 16px; transform: rotate(-1deg); box-shadow: 6px 6px 0 #B3262E; margin-top: 10px">
+        <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 80px; line-height: 0.9; color: {{counterColor}}">{{slotsLeft}}</span>
+        <span style="font-family: 'Rock Salt', cursive; font-size: 13px; line-height: 1.6">{{counterLabel}}</span>
+      </div>
+      <div style="border: 3px solid #C2582A; border-radius: 16px; padding: 16px 20px; display: flex; flex-direction: column; gap: 6px; transform: rotate(1deg)">
+        <span style="font-family: 'Rock Salt', cursive; font-size: 12px; color: #E0702E">{{countdownLabel}}</span>
+        <div style="display: flex; gap: 14px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 46px; line-height: 1">
+          <span>{{days}}<span style="font-size: 18px; color: #C9C1B3">d</span></span>
+          <span>{{hrs}}<span style="font-size: 18px; color: #C9C1B3">h</span></span>
+          <span>{{mins}}<span style="font-size: 18px; color: #C9C1B3">m</span></span>
+        </div>
+        <span style="font-size: 13px; color: #C9C1B3">Slots {{pickupWindow}} · [PICKUP ADDRESS]</span>
+      </div>
+      <a href="Menu.dc.html" style="text-decoration: none; background: #E0702E; color: #0B0B0B; padding: 20px; text-align: center; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px; box-shadow: 5px 5px 0 #FBF6EC; margin-top: 8px">{{ctaLabel}}</a>
+      <span style="font-family: 'Caveat Brush', cursive; font-size: 22px; color: #FBF6EC; text-align: center; transform: rotate(-2deg)">{{nudge}}</span>
+    </section>
+
+    <section style="padding: 28px 20px; border-top: 3px solid #3D1013; display: flex; flex-direction: column; gap: 20px">
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <h2 style="margin: 0; font-family: 'Rock Salt', cursive; font-size: 26px; color: #B3262E; line-height: 1.4">The 3Bs Menu</h2>
+        <svg width="170" height="12" viewBox="0 0 170 12" aria-hidden="true" fill="none" stroke="#B3262E" stroke-width="3" stroke-linecap="round"><path d="M3 8c30-6 60 4 90-2s40-4 74 3"></path></svg>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <sc-for list="{{items}}" as="item" hint-placeholder-count="9">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 2px dashed #3D1013; padding-bottom: 8px">
+            <span style="font-family: 'Caveat Brush', cursive; font-size: 28px; line-height: 1; transform: rotate(-1.5deg); transform-origin: left">{{item.name}}</span>
+            <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 22px; color: #E0702E; white-space: nowrap">Rs {{item.price}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <a href="Menu.dc.html" style="align-self: flex-start; text-decoration: none; border: 3px solid #FBF6EC; padding: 14px 24px; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px">Full menu with photos</a>
+    </section>
+
+    <section style="padding: 28px 20px; border-top: 3px solid #3D1013; display: flex; flex-direction: column; gap: 14px">
+      <h2 style="margin: 0; font-family: 'Rock Salt', cursive; font-size: 24px; color: #B3262E; line-height: 1.4">How a drop works</h2>
+      <ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.5; color: #C9C1B3">
+        <li style="display: flex; gap: 12px"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 28px; color: #E0702E; line-height: 1">1</span><span><b style="color: #FBF6EC">Request a slot.</b> Pick burgers and a Sunday pickup slot. Google sign-in plus your phone.</span></li>
+        <li style="display: flex; gap: 12px"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 28px; color: #E0702E; line-height: 1">2</span><span><b style="color: #FBF6EC">Owner accepts</b> or suggests another slot. You confirm here.</span></li>
+        <li style="display: flex; gap: 12px"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 28px; color: #E0702E; line-height: 1">3</span><span><b style="color: #FBF6EC">Pay by UPI,</b> upload screenshot or UTR. Verified means locked.</span></li>
+        <li style="display: flex; gap: 12px"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 28px; color: #E0702E; line-height: 1">4</span><span><b style="color: #FBF6EC">Pick up Sunday</b> when your status flips to Ready.</span></li>
+      </ol>
+      <p style="margin: 0; font-size: 13px; color: #C9C1B3">Updates only show inside your order page. No SMS or WhatsApp.</p>
+    </section>
+
+    <footer style="background: #C2582A; color: #0B0B0B; padding: 28px 20px; display: flex; flex-direction: column; gap: 14px">
+      <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 34px; line-height: 0.95">{{footerHeadline}}</span>
+      <span style="font-size: 15px; font-weight: 500">{{footerSub}}</span>
+      <a href="Menu.dc.html" style="text-decoration: none; background: #0B0B0B; color: #FBF6EC; padding: 18px; text-align: center; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px">{{ctaLabel}}</a>
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; text-align: center">Burnt Butter Buns · Mumbai · Sundays only</span>
+    </footer>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"soldOut":{"editor":"boolean","default":false,"section":"State"},"slotsLeft":{"editor":"int","default":37,"min":0,"max":300,"section":"State"},"pickupWindow":{"editor":"text","default":"1 to 4 pm","section":"State"},"$preview":{"width":390,"height":1760}}'>
+class Component extends DCLogic {
+  componentDidMount() { this.tick(); this._t = setInterval(() => this.tick(), 30000); }
+  componentWillUnmount() { clearInterval(this._t); }
+  tick() {
+    const now = new Date();
+    const d = new Date(now);
+    d.setDate(now.getDate() + ((7 - now.getDay()) % 7));
+    d.setHours(13, 0, 0, 0);
+    if (d <= now) d.setDate(d.getDate() + 7);
+    const ms = d - now;
+    this.setState({ days: Math.floor(ms / 864e5), hrs: Math.floor(ms / 36e5) % 24, mins: Math.floor(ms / 6e4) % 60, sundayDate: d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) });
+  }
+  renderVals() {
+    const s = this.state || {};
+    const soldOut = this.props.soldOut ?? false;
+    const stripText = soldOut ? 'SOLD OUT • SEE YOU NEXT SUNDAY •' : 'SUNDAYS ONLY • LIMITED BURGERS • PRE-ORDER NOW • BURNT BUTTER BUNS •';
+    const names = [['Killa Korean', 260], ['Hot Honey', 240], ['Master Makhani', 240], ['BBQ', 240], ['Nashville', 260], ['Classic', 220], ['Singular', 260], ['Double Down', 280], ['Fryday Box', 260]];
+    return {
+      rows: Array.from({ length: 24 }, (_, i) => ({ t: i % 2 ? 'SUNDAY  MENU  SUNDAY  MENU  SUNDAY  MENU' : 'MENU  SUNDAY  MENU  SUNDAY  MENU  SUNDAY', ml: (i % 3) * -50 + 'px' })),
+      items: names.map(([name, price]) => ({ name, price })),
+      stripText, stripLoop: (stripText + ' ').repeat(soldOut ? 8 : 4),
+      days: s.days ?? 0, hrs: s.hrs ?? 0, mins: s.mins ?? 0, sundayDate: s.sundayDate ?? '[DATE]',
+      pickupWindow: this.props.pickupWindow ?? '1 to 4 pm',
+      ctaLabel: soldOut ? 'See menu' : 'Order now',
+      windowLabel: soldOut ? 'Sold out this Sunday' : 'Drop is live',
+      windowColor: soldOut ? '#B3262E' : '#E0702E',
+      heroLine1: soldOut ? 'Gone.' : 'Fried.',
+      heroLine2: soldOut ? 'Next Sunday.' : 'Sundays only.',
+      slotsLeft: soldOut ? 0 : (this.props.slotsLeft ?? 37),
+      counterLabel: soldOut ? 'burgers left. Sold out.' : 'burgers left this Sunday',
+      counterColor: soldOut ? '#B3262E' : '#0B0B0B',
+      countdownLabel: soldOut ? 'Next drop opens in' : 'Pickup starts in',
+      nudge: soldOut ? 'blink and you miss it' : 'closes when the batch is gone',
+      footerHeadline: soldOut ? 'Sold out. Be faster next Sunday.' : 'Grab yours before the batch is gone.',
+      footerSub: soldOut ? 'Ordering reopens once the owner sets next Sunday.' : 'No fixed cutoff. Ordering closes the moment the Sunday limit is hit.'
+    };
+  }
+}
+</script>
+</body>
+</html>

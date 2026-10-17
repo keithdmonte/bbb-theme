@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Owner Sunday prep board</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Caveat+Brush&family=Rock+Salt&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#0B0B0B}
+a{color:#FBF6EC}a:hover{color:#E0702E}
+</style>
+</helmet>
+<div style="width: 100%; max-width: 480px; margin: 0 auto; min-height: 100vh; font-family: 'Space Grotesk', sans-serif; color: #FBF6EC; background: #0B0B0B; display: flex; flex-direction: column">
+  <header style="background: #C2582A; color: #0B0B0B; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+    <div style="display: flex; align-items: center; gap: 12px">
+      <a href="Dashboard.dc.html" aria-label="Back to dashboard" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 2px solid #0B0B0B; border-radius: 50%; color: #0B0B0B"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+      <div style="display: flex; flex-direction: column"><span style="font-family: 'Rock Salt', cursive; font-size: 12px">Sunday · live</span><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px; line-height: 1">Prep board</span></div>
+    </div>
+    <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 18px">{{readyCount}}/{{total}} ready</span>
+  </header>
+
+  <div style="padding: 16px 20px 24px; display: flex; flex-direction: column; gap: 20px">
+    <sc-for list="{{slots}}" as="s" hint-placeholder-count="3">
+      <section style="display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid {{s.lineColor}}; padding-bottom: 6px">
+          <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 30px; line-height: 1">{{s.time}}</span>
+          <span style="font-family: 'Rock Salt', cursive; font-size: 12px; color: {{s.lineColor}}">{{s.sub}}</span>
+        </div>
+        <sc-for list="{{s.orders}}" as="o" hint-placeholder-count="2">
+          <div style="display: flex; align-items: stretch; gap: 10px; background: {{o.bg}}; border: 3px solid {{o.border}}; border-radius: 16px; padding: 12px; color: {{o.fg}}">
+            <div style="display: flex; flex-direction: column; gap: 4px; flex-grow: 1; min-width: 0">
+              <div style="display: flex; align-items: baseline; gap: 8px"><span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 28px; line-height: 1; letter-spacing: 0.04em">{{o.code}}</span><span style="font-size: 13px; font-weight: 700; opacity: 0.8">{{o.name}}</span></div>
+              <span style="font-family: 'Caveat Brush', cursive; font-size: 21px; line-height: 1.1">{{o.items}}</span>
+            </div>
+            <button type="button" onClick="{{o.toggle}}" aria-pressed="{{o.ready}}" aria-label="Mark {{o.code}} ready" style="width: 84px; flex-shrink: 0; border-radius: 12px; border: 3px solid {{o.btnBorder}}; background: {{o.btnBg}}; color: {{o.btnFg}}; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer; min-height: 64px">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg>
+              <span>{{o.btnLabel}}</span>
+            </button>
+          </div>
+        </sc-for>
+      </section>
+    </sc-for>
+    <p style="margin: 0; font-size: 12px; color: #C9C1B3; text-align: center">Tapping Ready flips the customer's status page instantly. Tap again to undo. Picked up is marked by a second tap on a ready order.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1200}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { ready: { '0415': true, '0412': true } }; }
+  renderVals() {
+    const ready = this.state.ready;
+    const data = [
+      ['1:00 pm', [['0412', 'Dev P.', '1 Classic'], ['0415', 'Meera J.', '1 Nashville, 1 Fryday Box'], ['0419', 'Sana R.', '2 Hot Honey']]],
+      ['1:30 pm', [['0421', 'Kabir L.', '1 Killa Korean'], ['0423', 'Nina D.', '1 Double Down, 1 Singular']]],
+      ['2:00 pm', [['0427', 'Aarav S.', '1 Killa Korean, 2 Double Down']]]
+    ];
+    let readyCount = 0, total = 0;
+    const slots = data.map(([time, orders]) => {
+      const list = orders.map(([code, name, items]) => {
+        const r = !!ready[code]; total++; if (r) readyCount++;
+        return { code, name, items, ready: r, toggle: () => this.setState({ ready: { ...ready, [code]: !r } }),
+          bg: r ? '#F2CF63' : '#141211', fg: r ? '#0B0B0B' : '#FBF6EC', border: r ? '#F2CF63' : '#3D1013',
+          btnBg: r ? '#0B0B0B' : '#E0702E', btnFg: r ? '#F2CF63' : '#0B0B0B', btnBorder: r ? '#0B0B0B' : '#E0702E', btnLabel: r ? 'Ready' : 'Mark' };
+      });
+      const n = list.filter(o => o.ready).length;
+      return { time, orders: list, sub: n === list.length ? 'all ready' : n + ' of ' + list.length + ' ready', lineColor: n === list.length ? '#F2CF63' : '#B3262E' };
+    });
+    return { slots, readyCount, total };
+  }
+}
+</script>
+</body>
+</html>

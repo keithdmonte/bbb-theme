@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Caveat+Brush&family=Rock+Salt&family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+body{margin:0;background:#0B0B0B}
+a{color:#FBF6EC}a:hover{color:#E0702E}
+</style>
+</helmet>
+<div style="width: 100%; max-width: 480px; margin: 0 auto; min-height: 100vh; font-family: 'Space Grotesk', sans-serif; color: #FBF6EC; background: #0B0B0B; position: relative; overflow-x: clip; display: flex; flex-direction: column">
+  <div aria-hidden="true" style="position: absolute; inset: 0; overflow: hidden; pointer-events: none; display: flex; flex-direction: column">
+    <sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+      <div style="font-family: 'Rock Salt', cursive; font-size: 30px; line-height: 90px; color: #3D1013; white-space: nowrap; letter-spacing: 0.12em; margin-left: {{r.ml}}">{{r.t}}</div>
+    </sc-for>
+  </div>
+
+  <div style="position: relative; z-index: 1; display: flex; flex-direction: column; flex-grow: 1">
+    <header style="position: sticky; top: 0; background: #0B0B0B; border-bottom: 3px solid #3D1013; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+      <a href="HomeM.dc.html" aria-label="Back to home" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 2px solid #FBF6EC; border-radius: 50%"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 0">
+        <span style="font-family: 'Rock Salt', cursive; font-size: 18px; color: #B3262E">The 3Bs Menu</span>
+        <span style="font-size: 12px; color: #F2CF63; font-weight: 700">Sun {{sundayDate}} · {{slotsLeft}} burgers left</span>
+      </div>
+      <a href="Cart.dc.html" aria-label="Cart" style="position: relative; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 2px solid #FBF6EC; border-radius: 50%"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12l2 6H4z"></path><path d="M4 9v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9"></path></svg><span style="position: absolute; top: -6px; right: -6px; min-width: 22px; height: 22px; padding: 0 6px; box-sizing: border-box; border-radius: 999px; background: #E0702E; color: #0B0B0B; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center">{{cartCount}}</span></a>
+    </header>
+
+    <div style="padding: 20px 20px 120px; display: flex; flex-direction: column; gap: 28px">
+      <sc-for list="{{groups}}" as="g" hint-placeholder-count="3">
+        <section style="display: flex; flex-direction: column; gap: 18px">
+          <div style="display: flex; flex-direction: column; gap: 2px">
+            <h2 style="margin: 0; font-family: 'Rock Salt', cursive; font-size: 26px; color: #B3262E; line-height: 1.4; transform: rotate(-1deg); transform-origin: left">{{g.name}}</h2>
+            <svg width="150" height="12" viewBox="0 0 150 12" aria-hidden="true" fill="none" stroke="#B3262E" stroke-width="3" stroke-linecap="round"><path d="M3 8c30-6 50 4 80-2s30-4 64 3"></path></svg>
+          </div>
+          <sc-for list="{{g.items}}" as="item" hint-placeholder-count="3">
+            <article style="position: relative; background: #141211; border: 3px solid #3D1013; border-radius: 20px; padding: 18px 18px 18px 150px; min-height: 140px; display: flex; flex-direction: column; gap: 8px; justify-content: center; opacity: {{item.opacity}}">
+              <sc-if value="{{item.hasPhoto}}" hint-placeholder-val="{{ false }}">
+                <img loading="lazy" src="{{item.img}}" alt="{{item.name}}" style="position: absolute; left: -14px; top: 50%; width: 150px; height: 130px; object-fit: cover; border-radius: 16px; transform: translateY(-50%) rotate(-6deg); box-shadow: 0 12px 24px rgba(0,0,0,0.7)">
+              </sc-if>
+              <sc-if value="{{item.noPhoto}}" hint-placeholder-val="{{ true }}">
+                <div style="position: absolute; left: -14px; top: 50%; width: 150px; height: 130px; border: 3px dashed #D8923E; border-radius: 16px; background: #0B0B0B; transform: translateY(-50%) rotate(-6deg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #D8923E; font-family: 'Rock Salt', cursive; font-size: 10px; text-align: center; padding: 8px; box-sizing: border-box">
+                  <svg viewBox="0 0 48 56" width="30" height="35" aria-hidden="true" fill="none" stroke="#D8923E" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"><path d="M16 14c0-5 3-8 6-8 2 0 3 1 4 3 1-3 3-5 6-5 3 0 5 3 5 6"></path><path d="M10 24c0-8 6-12 14-12s14 4 14 12v10c0 6-4 10-8 12l-6 4-6-4c-4-2-8-6-8-12z"></path><path d="M24 30l5 5-5 5-5-5z"></path></svg>
+                  <span>[PHOTO: {{item.name}}]</span>
+                </div>
+              </sc-if>
+              <h3 style="margin: 0; font-family: 'Caveat Brush', cursive; font-size: 32px; line-height: 1; transform: rotate(-2deg); transform-origin: left">{{item.name}}</h3>
+              <span style="font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px; color: #E0702E">Rs {{item.price}}</span>
+              <sc-if value="{{item.soldOut}}" hint-placeholder-val="{{ false }}">
+                <span style="align-self: flex-start; font-family: 'Rock Salt', cursive; font-size: 12px; color: #FBF6EC; background: #B3262E; padding: 8px 12px; border-radius: 6px; transform: rotate(-3deg)">Sold out today</span>
+              </sc-if>
+              <sc-if value="{{item.available}}" hint-placeholder-val="{{ true }}">
+                <sc-if value="{{item.inCart}}" hint-placeholder-val="{{ false }}">
+                  <div style="display: flex; align-items: center; gap: 0; align-self: flex-start; border: 3px solid #E0702E; border-radius: 999px; overflow: hidden">
+                    <button type="button" onClick="{{item.dec}}" aria-label="Remove one {{item.name}}" style="width: 44px; height: 44px; border: none; background: transparent; color: #E0702E; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px; cursor: pointer">-</button>
+                    <span style="min-width: 32px; text-align: center; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px">{{item.qty}}</span>
+                    <button type="button" onClick="{{item.inc}}" aria-label="Add one {{item.name}}" style="width: 44px; height: 44px; border: none; background: #E0702E; color: #0B0B0B; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 24px; cursor: pointer">+</button>
+                  </div>
+                </sc-if>
+                <sc-if value="{{item.notInCart}}" hint-placeholder-val="{{ true }}">
+                  <button type="button" onClick="{{item.inc}}" style="align-self: flex-start; height: 44px; padding: 0 20px; border: none; border-radius: 999px; background: #E0702E; color: #0B0B0B; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 17px; cursor: pointer">Add to cart</button>
+                </sc-if>
+              </sc-if>
+            </article>
+          </sc-for>
+        </section>
+      </sc-for>
+    </div>
+
+    <div style="position: sticky; bottom: 0; padding: 14px 20px 20px; background: linear-gradient(180deg, rgba(11,11,11,0) 0%, #0B0B0B 30%)">
+      <a href="Cart.dc.html" style="display: flex; align-items: center; justify-content: space-between; text-decoration: none; background: #E0702E; color: #0B0B0B; padding: 18px 22px; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 20px; box-shadow: 5px 5px 0 #FBF6EC">
+        <span>{{cartCount}} in cart</span>
+        <span>Pick a slot · Rs {{cartTotal}}</span>
+      </a>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"slotsLeft":{"editor":"int","default":37,"min":0,"max":300,"section":"State"},"$preview":{"width":390,"height":1700}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { qty: { 'Killa Korean': 1 } }; }
+  renderVals() {
+    const qty = this.state.qty || {};
+    const data = [
+      ['Burgs', [['Killa Korean', 260, true], ['Hot Honey', 240], ['Master Makhani', 240], ['BBQ', 240], ['Nashville', 260, false, true], ['Classic', 220]]],
+      ['Smashers', [['Singular', 260], ['Double Down', 280]]],
+      ['Packers', [['Fryday Box', 260]]]
+    ];
+    let count = 0, total = 0;
+    const groups = data.map(([name, items]) => ({
+      name,
+      items: items.map(([n, price, , soldOut]) => {
+        const q = qty[n] || 0; count += q; total += q * price;
+        const set = (v) => this.setState({ qty: { ...qty, [n]: Math.max(0, v) } });
+        return { name: n, price, img: n.toLowerCase().replace(/ /g, '-') + '.webp', hasPhoto: true, noPhoto: false, soldOut: !!soldOut, available: !soldOut, opacity: soldOut ? 0.55 : 1, qty: q, inCart: q > 0, notInCart: q === 0, inc: () => set(q + 1), dec: () => set(q - 1) };
+      })
+    }));
+    const d = new Date(); d.setDate(d.getDate() + ((7 - d.getDay()) % 7));
+    return {
+      groups, cartCount: count, cartTotal: total,
+      slotsLeft: this.props.slotsLeft ?? 37,
+      sundayDate: d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }),
+      rows: Array.from({ length: 24 }, (_, i) => ({ t: i % 2 ? 'SUNDAY  MENU  SUNDAY  MENU  SUNDAY  MENU' : 'MENU  SUNDAY  MENU  SUNDAY  MENU  SUNDAY', ml: (i % 3) * -50 + 'px' }))
+    };
+  }
+}
+</script>
+</body>
+</html>
